@@ -1,0 +1,29 @@
+<!--В шаблоне 'users.html' заготовлены все необходимые теги и обработка условий, вам остаётся только дополнить -->
+<!--закомментированные строки вашим Jinja 2 кодом (использование полей id, username и age объектов модели User):-->
+
+
+{% extends 'main.html'%}
+{% block crud_container %}
+    {% if user %}
+        <article class="card container fluid"></article>
+        <br>
+        <!-- Напишите свой код здесь (Вывод свойств объекта User) -->
+        <h2> ID:{{user.id</h2>
+        <h4>Name:{{username}}</h4>
+        <h4>Age:{{age}}</h4>
+
+    {% else %}
+            <section class="container-fluid">
+                <h2 align="center"> Users </h2>
+                <br>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <!-- Напишите свой код здесь (перебор пользователей) -->
+                        {%for user in users%}
+                        <li class="list-group-item">{{user}}</li>
+                        {%endfor%}
+                    </ul>
+                </div>
+            </section>
+    {% endif %}
+{% endblock %}
